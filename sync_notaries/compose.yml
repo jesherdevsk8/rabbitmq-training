@@ -1,0 +1,49 @@
+services:
+  consumer:
+    build: ./consumer
+    entrypoint: ./bin/docker-entrypoint ./bin/rails server
+    container_name: rails-consumer
+    ports:
+      - 3001:3000
+    volumes:
+      - ./consumer:/home/app/consumer
+      - ./consumer/tmp/pids:/home/app/consumer/tmp/pids
+      - ./consumer/log:/home/app/consumer/log
+      - ./consumer/storage:/home/app/consumer/storage
+    depends_on:
+      - rabbitmq
+    environment:
+      - RAILS_ENV=production
+      - RAILS_SERVE_STATIC_FILES=true
+      - RAILS_LOG_TO_STDOUT=true
+
+  producer:
+    build: ./producer
+    entrypoint: ./bin/docker-entrypoint ./bin/rails server
+    container_name: rails-producer
+    ports:
+      - 3000:3000
+    volumes:
+      - ./producer:/home/app/producer
+      - ./producer/tmp/pids:/home/app/producer/tmp/pids
+      - ./producer/log:/home/app/producer/log
+      - ./producer/storage:/home/app/producer/storage
+    depends_on:
+      - rabbitmq
+    environment:
+      - RAILS_ENV=production
+      - RAILS_SERVE_STATIC_FILES=true
+      - RAILS_LOG_TO_STDOUT=true
+
+  rabbitmq:
+    image: "rabbitmq:3.8-management-alpine"
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - "15672:15672"  # Management UI
+      - "5672:5672"    # RabbitMQ message broker
+    volumes:
+      - "./.rabbitmq_data:/var/lib/rabbitmq/mnesia"
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin

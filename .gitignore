@@ -1,0 +1,58 @@
+# Ignore bundler config.
+sync_notaries/consumer/.bundle
+sync_notaries/producer/.bundle
+
+# Ignore all environment files (except templates).
+sync_notaries/consumer/.env*
+!sync_notaries/consumer/.env*.erb
+sync_notaries/producer/.env*
+!sync_notaries/producer/.env*.erb
+
+# Ignore all logfiles and tempfiles.
+sync_notaries/consumer/log/*
+sync_notaries/consumer/tmp/*
+!sync_notaries/consumer/log/.keep
+!sync_notaries/consumer/tmp/.keep
+sync_notaries/producer/log/*
+sync_notaries/producer/tmp/*
+!sync_notaries/producer/log/.keep
+!sync_notaries/producer/tmp/.keep
+
+# Ignore node_modules.
+sync_notaries/producer/node_modules/*
+sync_notaries/consumer/node_modules/*
+
+# Ignore RabbitMQ data.
+sync_notaries/.rabbitmq_data
+
+# Ignore pidfiles, but keep the directory.
+sync_notaries/consumer/tmp/pids/*
+!sync_notaries/consumer/tmp/pids/
+!sync_notaries/consumer/tmp/pids/.keep
+sync_notaries/producer/tmp/pids/*
+!sync_notaries/producer/tmp/pids/
+!sync_notaries/producer/tmp/pids/.keep
+
+# Ignore storage (uploaded files in development and any SQLite databases).
+sync_notaries/consumer/storage/*
+!sync_notaries/consumer/storage/.keep
+sync_notaries/consumer/tmp/storage/*
+!sync_notaries/consumer/tmp/storage/
+!sync_notaries/consumer/tmp/storage/.keep
+sync_notaries/producer/storage/*
+!sync_notaries/producer/storage/.keep
+sync_notaries/producer/tmp/storage/*
+!sync_notaries/producer/tmp/storage/
+!sync_notaries/producer/tmp/storage/.keep
+
+# Ignore SQLite3 databases.
+sync_notaries/consumer/db/*.sqlite3
+sync_notaries/producer/db/*.sqlite3
+
+# Ignore compiled assets.
+sync_notaries/consumer/public/assets
+sync_notaries/producer/public/assets
+
+# Ignore master key for decrypting credentials and more.
+sync_notaries/consumer/config/master.key
+sync_notaries/producer/config/master.key
