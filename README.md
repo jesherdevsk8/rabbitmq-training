@@ -70,7 +70,7 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 ```bash
 bundle add bunny
 
-# rodar docker compose
+# Rodar microserviços
 docker compose -f sync_notaries/compose.yml up -d
 ```
 
