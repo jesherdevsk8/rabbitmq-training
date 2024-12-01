@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Emprendimentos" %>
+
+<h1 style="text-align: center;">Sistema de Vinculo de Cartorio</h1>
+<h2 style="text-align: center;">Empreendimentos</h2>
+
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid #ddd; padding: 8px;">Name</th>
+      <th style="border: 1px solid #ddd; padding: 8px;">ERP Code</th>
+      <th style="border: 1px solid #ddd; padding: 8px;">Notaries</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px;"><%= property.name %></td>
+        <td style="border: 1px solid #ddd; padding: 8px;"><%= property.erp_code %></td>
+        <td style="border: 1px solid #ddd; padding: 8px;"><%= property&.notaries&.map(&:name).join(', ') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div style="text-align: center; margin-top: 20px;">
+  <%= link_to "Voltar para os cartórios", notaries_path %>
+</div>
+
