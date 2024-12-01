@@ -1,0 +1,104 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+
+  h1 {
+    color: #333;
+    text-align: center;
+  }
+
+  .notice {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .table-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+
+  .actions a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .actions a:hover {
+    text-decoration: underline;
+  }
+
+  .new-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+
+  .new-link:hover {
+    background-color: #45a049;
+  }
+</style>
+
+<p class="notice"><%= notice %></p>
+
+<% content_for :title, "Notaries" %>
+
+<h1>Notaries</h1>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Empreendimentos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @notaries.each do |notary| %>
+        <tr>
+          <td><%= notary.name %></td>
+          <td><%= notary.properties.map(&:name).join(", ") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%#= link_to "New notary", new_notary_path, class: "new-link" %>
+</body>
+</html>
