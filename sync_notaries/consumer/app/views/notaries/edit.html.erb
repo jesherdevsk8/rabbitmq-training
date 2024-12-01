@@ -1,0 +1,12 @@
+<% content_for :title, "Editing notary" %>
+
+<h1>Editing notary</h1>
+
+<%= render "form", notary: @notary %>
+
+<br>
+
+<div>
+  <%= link_to "Show this notary", @notary %> |
+  <%= link_to "Back to notaries", notaries_path %>
+</div>

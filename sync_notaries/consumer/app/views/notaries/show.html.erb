@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @notary %>
+
+<div>
+  <%= link_to "Edit this notary", edit_notary_path(@notary) %> |
+  <%= link_to "Back to notaries", notaries_path %>
+
+  <%= button_to "Destroy this notary", @notary, method: :delete %>
+</div>

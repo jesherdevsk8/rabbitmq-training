@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Cartórios" %>
+
+<h1 style="text-align: center;">Sistema de Vinculo de Cartorio</h1>
+<h2 style="text-align: center;">Cartórios</h2>
+
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid #ddd; padding: 8px;">Nome</th>
+      <th style="border: 1px solid #ddd; padding: 8px;">Empreendimento ERP Code</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notaries.each do |notary| %>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px;"><%= notary.name %></td>
+        <td style="border: 1px solid #ddd; padding: 8px;"><%= notary&.property&.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New notary', new_properties_path %>
