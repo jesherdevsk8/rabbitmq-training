@@ -56,3 +56,5 @@ gem 'bunny', '~> 2.23'
 gem "pry-byebug", "~> 3.10"
 
 gem "faker", "~> 3.5"
+
+gem "rubocop", "~> 1.69"
